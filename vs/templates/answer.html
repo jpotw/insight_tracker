@@ -4,10 +4,14 @@
     <div class="container py-5 text-center">
         <h1 class="display-4 text-purple">질문: {{ question }}</h1>
         <div class="chat-container">
+            <div class = "answer-container">
+            {{ ai_answer }}
+            </div>
+            <h2 class="display-4 text-purple">관련 문서</h2>
             <div class="chat-box">
-                {% for answer in relevant_docs %}
+                {% for r in resource %}
                     <div class="chat-message assistant">
-                        {{ answer }}
+                        {{ r }}
                     </div>
                 {% endfor %}
             </div>

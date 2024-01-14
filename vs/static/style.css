@@ -266,22 +266,22 @@ ul li {
 }
 
 ul li .chat-message {
-    background-color: #e0b0ff;
+    background-color: #202020;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
 ul li .chat-message.assistant {
-    background-color: #b388ff;
+    background-color: #719ECE;
     color: #fff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-ul li .chat-message.user {
-    background-color: #fff;
-    color: #333;
-}
 
 ul li:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -315,3 +315,27 @@ ul li a:hover {
 }
 
 
+.answer-container {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 15px;
+    background-color: #202020;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.answer-container input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    font-size: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.3s ease;
+}
+
+.answer-container input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #719ECE;
+}
