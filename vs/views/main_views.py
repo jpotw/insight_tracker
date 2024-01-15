@@ -20,7 +20,7 @@ llm = ChatOpenAI(openai_api_key=openai_api_key,
                  )
 embeddings=HuggingFaceEmbeddings()
 db=Chroma(
-    persist_directory="vs/huggingface2",
+    persist_directory="vs/huggingface",
     embedding_function=embeddings
 )
 
@@ -43,6 +43,7 @@ def answer():
         result = qa(question)
         ai_answer = result['result']
         print(ai_answer)
+        ai_answer = ai_answer.replace('\n', '<br>')
         source_document = result['source_documents']
         print(source_document)
         resource = []

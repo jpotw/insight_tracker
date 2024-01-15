@@ -1,0 +1,13 @@
+{% extends base.html %}
+{% block title %}질문/검색을 원하는 파일을 올려주세요{% endblock %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.file.label }}
+        {{ form.file }}
+    </div>
+    <div>
+        <input type="submit" value="Upload">
+    </div>
+{% endblock %}
