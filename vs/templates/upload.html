@@ -1,13 +1,16 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% block title %}질문/검색을 원하는 파일을 올려주세요{% endblock %}
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
-    {{ form.hidden_tag() }}
-    <div>
-        {{ form.file.label }}
-        {{ form.file }}
+<div class="question-container">
+    <div class="question-form">
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="input-section">
+                {{ form.file.label }}
+                {{ form.file(class="input-section input") }}
+                {{ form.submit(class="button") }}
+            </div>
+        </form>
     </div>
-    <div>
-        <input type="submit" value="Upload">
-    </div>
+</div>
 {% endblock %}

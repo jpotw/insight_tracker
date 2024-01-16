@@ -20,11 +20,11 @@ llm = ChatOpenAI(openai_api_key=openai_api_key,
                  )
 embeddings=HuggingFaceEmbeddings()
 db=Chroma(
-    persist_directory="vs/huggingface4",
+    persist_directory="huggingface5",
     embedding_function=embeddings
 )
 
-bp = Blueprint('main', __name__, url_prefix='/')
+bp = Blueprint('main', __name__, url_prefix='/main')
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -43,22 +43,12 @@ def answer():
         result = qa(question)
         ai_answer = result['result']
         print(ai_answer)
-        # Split ai_answer into a list of sentences
-        # Split ai_answer into a list of sentences
-
-        if r'(\d+\.\s)' in ai_answer:
-            sentences = re.split(r'(\d+\.\s)', ai_answer)
-
-            # Combine each number with the sentence that follows it
-            ai_answer_list = [sentences[i] + sentences[i + 1] for i in range(0, len(sentences) - 1, 2)]
-        else:
-            ai_answer_list = [ai_answer]
         source_document = result['source_documents']
         print(source_document)
         resource = []
         for document in source_document:
             resource.append(document.page_content)
         print(resource)
-        return render_template('answer.html', question=question, ai_answer_list=ai_answer_list, resource=resource)    
+        return render_template('answer.html', question=question, ai_answer=ai_answer, resource=resource)    
     else:
-        return render_template('main.html')
+        return render_template('upload.html')
