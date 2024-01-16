@@ -21,13 +21,13 @@ hf = HuggingFaceEmbeddings(
 
 text_splitter = CharacterTextSplitter(
     separator="\n",
-    chunk_size = 600,
-    chunk_overlap  = 0,
+    chunk_size = 500,
+    chunk_overlap  = 50,
     length_function = len,
     is_separator_regex = False,
 )
 
-loader = TextLoader('test.txt', encoding = 'UTF-8')
+loader = TextLoader('test1.txt', encoding = 'UTF-8')
 docs = loader.load_and_split(text_splitter=text_splitter)
 
 
@@ -39,5 +39,5 @@ for doc in docs:
 db = Chroma.from_documents(
     docs,
     embedding=hf,
-    persist_directory= "huggingface2"
+    persist_directory= "huggingface4"
 )
